@@ -40,9 +40,9 @@ default_events:
 # - pull_request_review_comment
 - push
 # - release
-# - repository
+- repository
 # - repository_import
-# - status
+- status
 # - team
 # - team_add
 # - watch

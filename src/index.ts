@@ -16,6 +16,21 @@ export = (app: Probot) => {
     console.log('commit comment was created!!!')
     return ctx.octokit.issues.create({owner: "ArvidWedtstein", repo: "Github-Bot", title: "Hehe, cummit incumming"})
   })
+  app.on("issue_comment.created", async (ctx) => {
+    console.log('Issue comment was created')
+    
+    ctx.octokit.issues.addLabels({
+      owner: ctx.issue().owner,
+      repo: ctx.issue().repo,
+      issue_number: ctx.issue().issue_number,
+      labels: [{name: "Bot Test"}]
+    })
+    return ctx.octokit.projects.createForRepo({
+      owner: "ArvidWedtstein",
+      repo: "Github-Bot",
+      name: "Test Project"
+    })
+  })
   // For more information on building apps:
   // https://probot.github.io/docs/
 
