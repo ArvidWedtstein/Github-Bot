@@ -15,26 +15,26 @@
 default_events:
   # - check_run
   # - check_suite
-  # - commit_comment
-  # - create
+  - commit_comment
+  - create
   # - delete
   # - deployment
   # - deployment_status
   # - fork
   # - gollum
-  # - issue_comment
+  - issue_comment
   - issues
 # - label
 # - milestone
-# - member
+- member
 # - membership
 # - org_block
 # - organization
 # - page_build
-# - project
-# - project_card
-# - project_column
-# - public
+- project
+- project_card
+- project_column
+- public
 # - pull_request
 # - pull_request_review
 # - pull_request_review_comment
@@ -90,7 +90,7 @@ default_permissions:
 
   # Manage repository projects, columns, and cards.
   # https://developer.github.com/v3/apps/permissions/#permission-on-repository-projects
-  # repository_projects: read
+  repository_projects: write
 
   # Retrieve security vulnerability alerts.
   # https://developer.github.com/v4/object/repositoryvulnerabilityalert/
@@ -124,14 +124,14 @@ default_permissions:
   # https://developer.github.com/v3/apps/permissions/
   # organization_administration: read
 # The name of the GitHub App. Defaults to the name specified in package.json
-# name: My Probot App
+# name: githubbot
 
 # The homepage of your GitHub App.
 # url: https://example.com/
 
 # A description of the GitHub App.
-# description: A description of my awesome app
+# description: Github bot
 
 # Set to true when your GitHub App is available to the public or false when it is only accessible to the owner of the app.
 # Default: true
-# public: false
+# public: true
