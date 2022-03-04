@@ -13,6 +13,8 @@ export = (app: Probot) => {
       issue_number: context.issue().issue_number,
       labels: ["Bot Test", "invalid"]
     })
+
+    // Create Issue
     // context.octokit.issues.create({
     //   owner: context.issue().owner, 
     //   repo: context.issue().repo, 
@@ -20,6 +22,7 @@ export = (app: Probot) => {
     //   body: "Yes, the time has cum"
     // })
     
+    // React to issue
     context.octokit.reactions.createForIssue({
       owner: context.issue().owner,
       repo: context.issue().repo, 
