@@ -1,6 +1,8 @@
-# github
+# Github Bot
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that github bot
+Project under construction
+
+
 
 ## Setup
 
