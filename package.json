@@ -1,7 +1,7 @@
 {
-  "name": "github",
+  "name": "githubbot",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "github bot",
   "author": "ArvidWedtstein <71834553+ArvidWedtstein@users.noreply.github.com>",
   "license": "ISC",
