@@ -13,18 +13,22 @@ export = (app: Probot) => {
       issue_number: context.issue().issue_number,
       labels: ["Bot Test", "invalid"]
     })
-    context.octokit.issues.create({
-      owner: context.issue().owner, 
-      repo: context.issue().repo, 
-      title: "Hehe, cummit incumming",
-      body: "Yes, the time has cum"
-    })
+    // context.octokit.issues.create({
+    //   owner: context.issue().owner, 
+    //   repo: context.issue().repo, 
+    //   title: "Hehe, cummit incumming",
+    //   body: "Yes, the time has cum"
+    // })
     
-    context.octokit.reactions.createForIssueComment({
+    context.octokit.reactions.createForIssue({
       owner: context.issue().owner,
       repo: context.issue().repo, 
-      comment_id: 1159522839,
+      issue_number: context.issue().issue_number,
       content: "heart"
+    })
+    context.octokit.projects.createCard({
+      column_id: 1,
+      note: "test"
     })
     
     return 
