@@ -29,17 +29,30 @@ export = (app: Probot) => {
       issue_number: context.issue().issue_number,
       content: "heart"
     })
-    context.octokit.projects.createCard({
-      column_id: 1,
-      note: "test"
-    })
-    
+    let project_id = 14196517
+    if (!context.octokit.projects.get({project_id: project_id})) {
+      const proj = context.octokit.projects.createForRepo({
+        owner: context.issue().owner,
+        repo: context.issue().repo, 
+        name: "Hehehehe",
+        body: "more mmehehehe",
+      })
+      const col = context.octokit.projects.createColumn({project_id: (await proj).data.id, name: "Issues"})
+      context.octokit.projects.createCard({column_id: (await col).data.id, note: "test"})
+    } else {
+      const proj = context.octokit.projects.get({
+        project_id: project_id
+      })
+      const col = context.octokit.projects.createColumn({project_id: (await proj).data.id, name: "Issues"})
+      context.octokit.projects.createCard({column_id: (await col).data.id, note: "test"})
+    }
+  
     return 
     
   });
   app.on("push", async (context) => {
     // Code was pushed to the repo, what should we do with it?
-    app.log.info(context);
+    app.log.info(context.payload);
   });
   app.on("commit_comment.created", async (ctx) => {
     console.log('commit comment was created!!!')
