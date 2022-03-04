@@ -8,6 +8,9 @@ export = (app: Probot) => {
     });
     return context.octokit.issues.createComment(issueComment);
   });
+  app.on("push", async (ctx) => {
+    return ctx.octokit.repos.createCommitComment({ owner: "ArvidWedtstein", repo: "Github-Bot", commit_sha: "ace8e3c07751a473b5a34c5e29cb979fc38301ca", body: "Welcome to this repository!"})
+  })
   // For more information on building apps:
   // https://probot.github.io/docs/
 
